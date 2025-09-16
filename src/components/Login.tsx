@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { Label } from "./ui/label";
-import logo from "./assets/logo.jpg";
+import logo from "./assets/logo2.png";
 
 interface LoginProps {
   onLogin: (user: { name: string; email: string }) => void;

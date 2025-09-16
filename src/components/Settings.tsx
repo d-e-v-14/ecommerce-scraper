@@ -1,3 +1,4 @@
+import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Switch } from "./ui/switch";
 import { Label } from "./ui/label";
@@ -20,9 +21,9 @@ export function Settings() {
 
   return (
     <div className="space-y-8">
-      <div>
-        <h2 className="text-xl">Settings</h2>
-        <p className="text-muted-foreground text-sm">Configure your experience</p>
+      <div className="mb-6">
+        <h2 className="text-lg font-semibold">Settings</h2>
+        <p className="text-muted-foreground text-xs">Configure your experience</p>
       </div>
 
       <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .3 }}>

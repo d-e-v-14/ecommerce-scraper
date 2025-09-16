@@ -31,6 +31,8 @@ export default function App() {
         return <Reports />;
       case "profile":
         return <Profile />;
+      case "settings":
+        return <Settings />
 
       default:
         return <Dashboard />;

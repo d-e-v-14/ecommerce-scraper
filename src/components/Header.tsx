@@ -78,6 +78,7 @@ export function Header({ activeTab, onNavigate }: HeaderProps) {
             variant="ghost"
             size="icon"
             className="rounded-full hover:bg-muted transition-colors"
+            onClick={() => onNavigate("settings")}
           >
             <Settings className="w-5 h-5" />
           </Button>
