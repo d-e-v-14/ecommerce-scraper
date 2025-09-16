@@ -16,6 +16,7 @@ import {
   Cell
 } from "recharts";
 import { TrendingUp, TrendingDown, AlertTriangle, CheckCircle, Download, Filter } from "lucide-react";
+import { motion } from "framer-motion";
 
 const complianceData = [
   { month: 'Jan', score: 85 },
@@ -35,10 +36,10 @@ const categoryData = [
 ];
 
 const violationData = [
-  { name: 'Missing MRP', value: 35, color: '#ef4444' },
-  { name: 'Incorrect Origin', value: 25, color: '#f97316' },
-  { name: 'Missing Manufacturing Date', value: 20, color: '#eab308' },
-  { name: 'Incomplete Address', value: 20, color: '#6b7280' },
+  { name: 'Missing MRP', value: 35, color: 'var(--chart-4)' },
+  { name: 'Incorrect Origin', value: 25, color: 'var(--chart-3)' },
+  { name: 'Missing Manufacturing Date', value: 20, color: 'var(--chart-5)' },
+  { name: 'Incomplete Address', value: 20, color: 'var(--chart-2)' },
 ];
 
 export function Dashboard() {
@@ -63,13 +64,14 @@ export function Dashboard() {
       </div>
 
       {/* Key Metrics */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-        <Card>
-          <CardContent className="p-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .3, delay: .05 }}>
+        <Card className="shadow-elevated">
+          <CardContent className="p-5">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs text-muted-foreground">Overall Compliance</p>
-                <p className="text-lg">88.5%</p>
+                <p className="text-lg font-medium">88.5%</p>
               </div>
               <div className="flex items-center text-green-600">
                 <TrendingUp className="w-4 h-4 mr-1" />
@@ -78,13 +80,15 @@ export function Dashboard() {
             </div>
           </CardContent>
         </Card>
+        </motion.div>
 
-        <Card>
-          <CardContent className="p-4">
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .3, delay: .1 }}>
+        <Card className="shadow-elevated">
+          <CardContent className="p-5">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs text-muted-foreground">Active Violations</p>
-                <p className="text-lg">247</p>
+                <p className="text-lg font-medium">247</p>
               </div>
               <div className="flex items-center text-red-600">
                 <AlertTriangle className="w-4 h-4 mr-1" />
@@ -93,28 +97,32 @@ export function Dashboard() {
             </div>
           </CardContent>
         </Card>
+        </motion.div>
 
-        <Card>
-          <CardContent className="p-4">
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .3, delay: .15 }}>
+        <Card className="shadow-elevated">
+          <CardContent className="p-5">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs text-muted-foreground">Products Scanned</p>
-                <p className="text-lg">12,847</p>
+                <p className="text-lg font-medium">12,847</p>
               </div>
-              <div className="flex items-center text-blue-600">
+              <div className="flex items-center text-[color:var(--primary)]">
                 <CheckCircle className="w-4 h-4 mr-1" />
                 <span className="text-xs">+1,204</span>
               </div>
             </div>
           </CardContent>
         </Card>
+        </motion.div>
 
-        <Card>
-          <CardContent className="p-4">
+        <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: .3, delay: .2 }}>
+        <Card className="shadow-elevated">
+          <CardContent className="p-5">
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs text-muted-foreground">Avg. Response Time</p>
-                <p className="text-lg">2.3 hrs</p>
+                <p className="text-lg font-medium">2.3 hrs</p>
               </div>
               <div className="flex items-center text-green-600">
                 <TrendingDown className="w-4 h-4 mr-1" />
@@ -123,54 +131,60 @@ export function Dashboard() {
             </div>
           </CardContent>
         </Card>
+        </motion.div>
       </div>
 
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Compliance Trends */}
-        <Card>
+        <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .35 }}>
+        <Card className="shadow-elevated">
           <CardHeader>
             <CardTitle className="text-sm">Compliance Score Trends</CardTitle>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={200}>
               <LineChart data={complianceData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
                 <XAxis dataKey="month" tick={{ fontSize: 11 }} />
                 <YAxis tick={{ fontSize: 11 }} />
                 <Tooltip />
                 <Line 
                   type="monotone" 
                   dataKey="score" 
-                  stroke="#030213" 
+                  stroke="var(--primary)" 
                   strokeWidth={2}
-                  dot={{ fill: '#030213', strokeWidth: 2, r: 4 }}
+                  dot={{ fill: 'var(--primary)', strokeWidth: 2, r: 4 }}
                 />
               </LineChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
+        </motion.div>
 
         {/* Category Compliance */}
-        <Card>
+        <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .35, delay: .05 }}>
+        <Card className="shadow-elevated">
           <CardHeader>
             <CardTitle className="text-sm">Compliance by Category</CardTitle>
           </CardHeader>
           <CardContent>
             <ResponsiveContainer width="100%" height={200}>
               <BarChart data={categoryData}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#f0f0f0" />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--border)" />
                 <XAxis dataKey="category" tick={{ fontSize: 9 }} />
                 <YAxis tick={{ fontSize: 11 }} />
                 <Tooltip />
-                <Bar dataKey="compliance" fill="#030213" radius={[2, 2, 0, 0]} />
+                <Bar dataKey="compliance" fill="var(--primary)" radius={[2, 2, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </CardContent>
         </Card>
+        </motion.div>
 
         {/* Violation Breakdown */}
-        <Card>
+        <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .35, delay: .1 }}>
+        <Card className="shadow-elevated">
           <CardHeader>
             <CardTitle className="text-sm">Violation Types</CardTitle>
           </CardHeader>
@@ -209,9 +223,11 @@ export function Dashboard() {
             </div>
           </CardContent>
         </Card>
+        </motion.div>
 
         {/* Recent Violations */}
-        <Card>
+        <motion.div initial={{ opacity: 0, y: 8 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: .35, delay: .15 }}>
+        <Card className="shadow-elevated">
           <CardHeader>
             <CardTitle className="text-sm">Recent Violations</CardTitle>
           </CardHeader>
@@ -242,6 +258,7 @@ export function Dashboard() {
             </div>
           </CardContent>
         </Card>
+        </motion.div>
       </div>
     </div>
   );

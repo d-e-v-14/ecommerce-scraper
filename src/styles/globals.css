@@ -2,43 +2,45 @@
 
 :root {
   --font-size: 16px;
-  --background: #ffffff;
-  --foreground: oklch(0.145 0 0);
+  /* Elegant Light Theme */
+  --background: #f8fafc; /* slate-50 */
+  --foreground: #0f172a; /* slate-900 */
   --card: #ffffff;
-  --card-foreground: oklch(0.145 0 0);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: #030213;
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.0058 264.53);
-  --secondary-foreground: #030213;
-  --muted: #ececf0;
-  --muted-foreground: #717182;
-  --accent: #e9ebef;
-  --accent-foreground: #030213;
-  --destructive: #d4183d;
+  --card-foreground: #0f172a;
+  --popover: #ffffff;
+  --popover-foreground: #0f172a;
+  --primary: #3b82f6; /* blue-500 for softer default */
+  --primary-foreground: #ffffff;
+  --secondary: #eef2ff; /* indigo-50 */
+  --secondary-foreground: #334155; /* slate-700 */
+  --muted: #f1f5f9; /* slate-100 */
+  --muted-foreground: #64748b; /* slate-500 */
+  --accent: #dbeafe; /* blue-100 */
+  --accent-foreground: #1e3a8a; /* indigo-900 */
+  --destructive: #ef4444; /* red-500 */
   --destructive-foreground: #ffffff;
-  --border: rgba(0, 0, 0, 0.1);
-  --input: transparent;
-  --input-background: #f3f3f5;
-  --switch-background: #cbced4;
+  --border: rgba(2, 6, 23, 0.08);
+  --input: #ffffff;
+  --input-background: #f8fafc;
+  --switch-background: #e2e8f0; /* slate-200 */
   --font-weight-medium: 500;
   --font-weight-normal: 400;
-  --ring: oklch(0.708 0 0);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --radius: 0.625rem;
-  --sidebar: oklch(0.985 0 0);
-  --sidebar-foreground: oklch(0.145 0 0);
-  --sidebar-primary: #030213;
-  --sidebar-primary-foreground: oklch(0.985 0 0);
-  --sidebar-accent: oklch(0.97 0 0);
-  --sidebar-accent-foreground: oklch(0.205 0 0);
-  --sidebar-border: oklch(0.922 0 0);
-  --sidebar-ring: oklch(0.708 0 0);
+  --ring: #60a5fa; /* blue-400 */
+  /* Chart palette (harmonious) */
+  --chart-1: #2563eb; /* blue-600 */
+  --chart-2: #10b981; /* emerald-500 */
+  --chart-3: #f59e0b; /* amber-500 */
+  --chart-4: #ef4444; /* red-500 */
+  --chart-5: #8b5cf6; /* violet-500 */
+  --radius: 0.875rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0f172a;
+  --sidebar-primary: #2563eb;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f3f4f6;
+  --sidebar-accent-foreground: #1f2937;
+  --sidebar-border: #e5e7eb;
+  --sidebar-ring: #93c5fd;
 }
 
 .dark {
@@ -121,13 +123,23 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50;
+    border-color: var(--border);
   }
 
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    color: var(--foreground);
   }
 }
+
+/* Utility classes backed by CSS variables for palette */
+.bg-background { background-color: var(--background); }
+.text-foreground { color: var(--foreground); }
+.bg-card { background-color: var(--card); }
+.text-muted-foreground { color: var(--muted-foreground); }
+.bg-input-background { background-color: var(--input-background); }
+.ring-primary { box-shadow: 0 0 0 3px color-mix(in oklab, var(--primary) 30%, transparent); }
+.shadow-elevated { box-shadow: 0 10px 25px -10px rgba(2,6,23,0.15), 0 2px 6px rgba(2,6,23,0.06); }
 
 /**
  * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.

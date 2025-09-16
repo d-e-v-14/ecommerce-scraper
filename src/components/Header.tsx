@@ -10,21 +10,11 @@ interface HeaderProps {
 
 export function Header({ activeTab, onNavigate }: HeaderProps) {
   return (
-    <header className="border-b bg-white sticky top-0 z-50">
+    <header className="border-b bg-card sticky top-0 z-50">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
         <div className="flex items-center space-x-6">
-          <h1 className="text-xl tracking-tight">ComplianceTracker</h1>
+          <h1 className="text-xl tracking-tight text-[color:var(--primary)]">Legal Metrology</h1>
           <nav className="hidden md:flex space-x-6">
-            <button 
-              onClick={() => onNavigate("products")}
-              className={`transition-colors ${
-                activeTab === "products" 
-                  ? "text-foreground" 
-                  : "text-muted-foreground hover:text-foreground"
-              }`}
-            >
-              Products
-            </button>
             <button 
               onClick={() => onNavigate("dashboard")}
               className={`transition-colors ${
@@ -36,6 +26,46 @@ export function Header({ activeTab, onNavigate }: HeaderProps) {
               Dashboard
             </button>
             <button 
+              onClick={() => onNavigate("products")}
+              className={`transition-colors ${
+                activeTab === "products" 
+                  ? "text-foreground" 
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Products
+            </button>
+            <button 
+              onClick={() => onNavigate("listings")}
+              className={`transition-colors ${
+                activeTab === "listings" 
+                  ? "text-foreground" 
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Product Listings
+            </button>
+            <button 
+              onClick={() => onNavigate("ocr")}
+              className={`transition-colors ${
+                activeTab === "ocr" 
+                  ? "text-foreground" 
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              OCR Analyzer
+            </button>
+            <button 
+              onClick={() => onNavigate("rules")}
+              className={`transition-colors ${
+                activeTab === "rules" 
+                  ? "text-foreground" 
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Rule Engine
+            </button>
+            <button 
               onClick={() => onNavigate("reports")}
               className={`transition-colors ${
                 activeTab === "reports" 
@@ -44,6 +74,26 @@ export function Header({ activeTab, onNavigate }: HeaderProps) {
               }`}
             >
               Reports
+            </button>
+            <button 
+              onClick={() => onNavigate("profile")}
+              className={`transition-colors ${
+                activeTab === "profile" 
+                  ? "text-foreground" 
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Profile
+            </button>
+            <button 
+              onClick={() => onNavigate("settings")}
+              className={`transition-colors ${
+                activeTab === "settings" 
+                  ? "text-foreground" 
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              Settings
             </button>
           </nav>
         </div>
