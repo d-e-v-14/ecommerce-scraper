@@ -1,0 +1,13 @@
+/* Import design tokens and CSS variables */
+@import "./styles/globals.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Project custom variables and layers */
+@layer base {
+  html { font-family: var(--font-sans, theme(fontFamily.sans)); }
+}
+
+

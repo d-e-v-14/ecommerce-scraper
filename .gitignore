@@ -1,0 +1,62 @@
+# ---- OS / Editor Junk ----
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*.log
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg
+*.egg-info/
+.env
+.venv/
+.env*/ 
+*.sqlite3
+
+# ---- Java ----
+*.class
+*.jar
+*.war
+*.ear
+*.iml
+.idea/
+out/
+
+# ---- C / C++ ----
+*.o
+*.obj
+*.exe
+*.out
+*.dll
+*.so
+*.dylib
+
+# ---- Node / JS ----
+node_modules/
+dist/
+build/
+package-lock.json
+yarn.lock
+
+# ---- VS Code ----
+.vscode/
+.history/
+
+# ---- General ----
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.iso
+
+# ---- Git LFS candidates (if you track big files) ----
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.exe
+*.pdf
