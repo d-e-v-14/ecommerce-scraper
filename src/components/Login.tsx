@@ -114,7 +114,7 @@ export function Login({ onLogin }: LoginProps) {
             <p className="text-sm text-center font-nunito text-muted-foreground">
               New to{" "}
               <span className="text-[color:var(--primary)] font-nunito font-medium">
-                Legal Metrology
+                Satya Suchak
               </span>
               ?{" "}
               <button
